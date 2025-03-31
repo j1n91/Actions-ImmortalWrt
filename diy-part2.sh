@@ -10,8 +10,6 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
-# Replace Smartdns
-./scripts/feeds uninstall luci-app-smartdns smartdns
-./scripts/feeds install -a -p customsd
-
-sed -i 's/192.168.1.1/192.168.5.1/g' package/base-files/files/bin/config_generate
+# Set LAN IP address and netmask
+sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
+sed -i 's/255.255.255.0/255.255.0.0/g' package/base-files/files/bin/config_generate
